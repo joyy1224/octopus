@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xuyue.octopus.repository.DomainConfDao">
+    <resultMap id="BaseResultMap" type="com.xuyue.octopus.entity.DomainConf"
+               extends="com.xuyue.octopus.repository.mapper.DomainConfMapper.BaseResultMap">
+    </resultMap>
+
+
+    <select id="selectByDomain" resultMap="BaseResultMap">
+        SELECT *
+        FROM domain_conf
+        WHERE deleted = 0
+          AND domain_status = 1
+          AND domain_value = #{domain}
+    </select>
+
+</mapper>
